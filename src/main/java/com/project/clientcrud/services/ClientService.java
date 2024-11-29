@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.project.clientcrud.dto.ClientDTO;
 import com.project.clientcrud.entities.Client;
 import com.project.clientcrud.repositories.ClientRepository;
+import com.project.clientcrud.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClientService {
@@ -21,7 +22,7 @@ public class ClientService {
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id){
         Optional<Client> result = repository.findById(id);
-        return new ClientDTO(result.get());
+        return new ClientDTO(result.orElseThrow(() -> new ResourceNotFoundException("Id não encontrado")));
     }
 
     @Transactional(readOnly = true)
@@ -40,14 +41,21 @@ public class ClientService {
 
     @Transactional
     public ClientDTO update(Long id, ClientDTO dto){
-        Client entity = repository.getReferenceById(id);
-        dtoToEntity(dto, entity);
-        entity = repository.save(entity);
-        return new ClientDTO(entity);
+        try {
+            Client entity = repository.getReferenceById(id);
+            dtoToEntity(dto, entity);
+            entity = repository.save(entity);
+            return new ClientDTO(entity);
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Id não encontrado");
+        }
     }
 
     @Transactional
     public void delete(Long id){
+        if (!repository.existsById(id)) {
+            throw new ResourceNotFoundException("Id não encontrado");
+        }
         repository.deleteById(id);
     }
 
