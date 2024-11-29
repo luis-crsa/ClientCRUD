@@ -4,12 +4,17 @@ import java.time.LocalDate;
 
 import com.project.clientcrud.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Nome requerido")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Data deve ser válida")
     private LocalDate birthDate;
     private Integer children;
     
