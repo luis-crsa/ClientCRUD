@@ -3,27 +3,32 @@ Aplicação backend para gerenciamento de clientes com operações CRUD (Create,
 
 ![image](https://github.com/user-attachments/assets/b79ca988-e588-40ac-816e-ffbc48c1a0a5)
 
-## Tabela Client
-![image](https://github.com/user-attachments/assets/a1f3ac9a-6711-41a6-9bb8-1df730b93192)
+## Endpoints da API
+| Rota               | Descrição                                          
+|----------------------|-----------------------------------------------------
+| GET /clients     | Recupera as informações de todos os clientes
+| GET /clients/{id}   | Recupera as informações de um cliente pelo id
+| POST /clients     | Salva um novo cliente
+| PUT /clients/{id}     | Atualiza as informações de um cliente pelo id
+| DELETE /clients/{id}     | Deleta um cliente pelo id
 
-
-# Tecnologias utilizadas
+## Tecnologias utilizadas
 - Java
 - Spring Boot
 - JPA / Hibernate
 - Maven
 
-# Como executar o projeto
+## Como executar o projeto
 Pré-requisitos: Java 21
 
 ```bash
-# Clonar repositório
+# Clone o repositório
 git clone https://github.com/luis-crsa/ClientCRUD.git
 
-# Acessar a pasta do projeto
+# Acesse a pasta do projeto
 cd clientcrud
 
-# Executar o projeto
+# Execute o projeto
 ./mvnw spring-boot:run
 ```
 
