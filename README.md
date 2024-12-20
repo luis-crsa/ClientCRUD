@@ -1,13 +1,13 @@
 # 📑ClientCRUD
-Aplicação backend para gerenciamento de clientes com operações CRUD (Create, Read, Update, Detele).
+Aplicação backend para gerenciamento de clientes com operações CRUD (Create, Read, Update, Delete).
 
 ![image](https://github.com/user-attachments/assets/b79ca988-e588-40ac-816e-ffbc48c1a0a5)
 
-## 🛠️Tecnologias utilizadas
-- Java
-- Spring Boot
-- JPA / Hibernate
-- Maven
+## 🛠️Tecnologias utilizadas  
+- [Java](https://www.java.com/)  
+- [Spring Boot](https://spring.io/projects/spring-boot)  
+- [JPA / Hibernate](https://hibernate.org/)  
+- [Maven](https://maven.apache.org/)  
 
 ## 📍Endpoints da API
 | Rota               | Descrição                                          
